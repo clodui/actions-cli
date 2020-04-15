@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy to Clodui
-        uses: clodui/actions-cli@v1
+        uses: clodui/actions-cli@v1.0
         with:
           args: >
             --username ${{ secrets.CLODUI_USERNAME }}
