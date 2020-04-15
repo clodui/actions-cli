@@ -1,0 +1,10 @@
+name: "Clodui Actions"
+description: "Commands for creating and deploying Clodui websites"
+author: "Clodui"
+branding:
+  icon: "terminal"
+  color: "blue"
+
+runs:
+  using: "docker"
+  image: "docker://clodui/cli"
