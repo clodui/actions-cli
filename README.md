@@ -1,6 +1,6 @@
 # GitHub Action for Clodui
 
-This GitHub action helps to run Clodui CLI commands from your workflow. Learn more about Clodui CLI from the docs https://www.clodui.com/docs/clodui-cli/
+GitHub action for deploying changes to your Clodui website. Learn more about Clodui https://www.clodui.com/
 
 ### Usage
 
