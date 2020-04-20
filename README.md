@@ -18,15 +18,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy to Clodui
-        uses: clodui/actions-cli@v1.0
+        uses: clodui/actions-cli@v2.0
         with:
-          args: >
-            --username ${{ secrets.CLODUI_USERNAME }}
-            --password ${{ secrets.CLODUI_PASSWORD }}
-            deploy
-            create
-            --website-id ${{ secrets.WEBSITE_ID }}
-            --source-dir ./sample/test-website/
+          username: ${{ secrets.CLODUI_USERNAME }}
+          password: ${{ secrets.CLODUI_PASSWORD }}
+          website-id: ${{ secrets.WEBSITE_ID }}
+          source-dir: ./sample/test-website/
+          publish: publish
 ```
 
-**Note :** Clodui CLI argument `source-dir` is set as a relative path to the environment `GITHUB_WORKSPACE`
+### Options
+
+- `username` : Clodui username; best practice is to read it from [secrets]
+- `password` : Clodui password; best practice is to read it from [secrets]
+- `website-id` : Id of your Clodui website
+- `source-dir` : Path to the directory from files to be uploaded. Please make sure it is set as a relative path to your workspace (`GITHUB_WORKSPACE`)
+- `publish` : Option for controlling automatic publishing. Valid values are `publish` or `no-publish`
+
+[secrets]: https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets

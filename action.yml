@@ -5,6 +5,32 @@ branding:
   icon: "terminal"
   color: "blue"
 
+inputs:
+  username:
+    description: "Clodui username"
+    required: true
+  password:
+    description: "Clodui password"
+    required: true
+  website-id:
+    description: "Clodui website id"
+    required: true
+  source-dir:
+    description: "Website files source directory"
+    required: true
+  publish:
+    description: "Controls auto publish, valid values are publish or no-publish"
+    required: false
+    default: "no-publish"
+
 runs:
   using: "docker"
   image: "docker://clodui/cli"
+  args:
+    - deploy
+    - create
+    - --username ${{ inputs.username }}
+    - --password ${{ inputs.password }}
+    - --website-id ${{ inputs.website-id }}
+    - --source-dir ${{ inputs.source-dir }}
+    - --${{ inputs.publish }}
